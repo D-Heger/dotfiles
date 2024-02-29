@@ -101,6 +101,7 @@
     gcc
     usbutils
     gnomeExtensions.battery-health-charging
+    gnumake
   ];
 
   programs = {
