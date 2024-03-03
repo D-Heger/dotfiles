@@ -77,6 +77,19 @@
     #media-session.enable = true;
   };
 
+  # Laptop power managment
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -114,7 +127,10 @@
       enable = true;
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
-      shellAliases = { upgrade = "sudo nixos-rebuild switch --upgrade"; };
+      shellAliases = {
+        upgrade = "sudo nixos-rebuild switch --upgrade";
+        switch = "sudo nixos-rebuild switch";
+      };
     };
 
   };
